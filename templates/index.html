@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KB Workflow App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>KB Troubleshooting Workflow App</h1>
+            <p class="subtitle">Standardized troubleshooting, evidence collection, and escalation guidance for support workflows.</p>
+        </header>
+
+        <form method="POST" class="form-card">
+            <label for="issue_type">Select Issue Type</label>
+
+            <div class="form-row">
+                <select name="issue_type" id="issue_type">
+                    {% for issue in workflows.keys() %}
+                        <option value="{{ issue }}" {% if selected_issue == issue %}selected{% endif %}>
+                            {{ issue }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Load Workflow</button>
+            </div>
+        </form>
+
+        {% if workflow %}
+            <main class="workflow-card">
+                <div class="workflow-header">
+                    <div>
+                        <h2>{{ selected_issue }}</h2>
+                        <p class="recommendation">{{ workflow.recommendation }}</p>
+                    </div>
+
+                    <span class="severity severity-{{ workflow.severity | lower }}">
+                        {{ workflow.severity }}
+                    </span>
+                </div>
+
+                <section>
+                    <h3>Troubleshooting Steps</h3>
+                    <ul>
+                        {% for step in workflow.steps %}
+                            <li>{{ step }}</li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Evidence Needed</h3>
+                    <ul>
+                        {% for item in workflow.evidence %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section class="response-box">
+                    <h3>Customer-Safe Response</h3>
+                    <p>{{ workflow.customer_response }}</p>
+                </section>
+
+                <section class="internal-box">
+                    <h3>Internal Notes</h3>
+                    <p>{{ workflow.internal_notes }}</p>
+                </section>
+            </main>
+        {% endif %}
+    </div>
+</body>
+</html>

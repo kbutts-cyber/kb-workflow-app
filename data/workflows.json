@@ -1,0 +1,97 @@
+{
+  "Printer Issue": {
+    "severity": "High",
+    "recommendation": "Continue troubleshooting first unless the printer fails a direct test print or shows a confirmed hardware error.",
+    "steps": [
+      "Confirm the printer is powered on and connected directly to the PC when possible.",
+      "Run a Windows test print outside of the booth software.",
+      "Check paper, ribbon, and printer status lights.",
+      "Confirm the correct print size/mode is selected.",
+      "If using ARM, verify Hot Folder Print is being used instead of direct driver printing."
+    ],
+    "evidence": [
+      "Photo of printer error/status lights",
+      "Screenshot of printer settings",
+      "Screenshot of booth software print settings",
+      "Short video showing the failed print attempt"
+    ],
+    "customer_response": "Thanks for the details. Please confirm whether the printer can complete a Windows test print outside of the booth software. Also send a photo of the printer status/error and a screenshot of the print settings so we can confirm whether this is a configuration issue or a hardware issue.",
+    "internal_notes": "Printer issues should be separated into software/configuration vs. hardware failure. Confirm test print first before recommending replacement."
+  },
+  "Camera Issue": {
+    "severity": "High",
+    "recommendation": "Check USB, camera utilities, and Device Manager before replacing hardware.",
+    "steps": [
+      "Reconnect the camera and try a different USB port.",
+      "Plug the camera directly into the mini PC instead of a USB hub.",
+      "Close Canon/Nikon/Sony camera utilities if installed.",
+      "Check Device Manager to confirm whether the camera is detected.",
+      "Test with a shorter USB cable if possible."
+    ],
+    "evidence": [
+      "Screenshot of Device Manager",
+      "Photo of camera USB connection",
+      "Video showing the camera disconnecting or failing to trigger",
+      "Screenshot of booth software camera settings"
+    ],
+    "customer_response": "Please connect the camera directly to the mini PC and confirm whether it appears in Device Manager. Also close any camera utility software and send a screenshot of Device Manager plus a short video showing the issue.",
+    "internal_notes": "Camera disconnects are often USB path, cable length, power, hub, or SDK conflict related."
+  },
+  "Touchscreen Issue": {
+    "severity": "Medium",
+    "recommendation": "Validate USB connection and calibration behavior before replacing touch hardware.",
+    "steps": [
+      "Confirm the touch USB cable is connected to the PC.",
+      "Test whether Windows detects touch input.",
+      "Try a different USB port.",
+      "Run the touch calibration tool if available.",
+      "Check whether only part of the screen responds or touch is fully unavailable."
+    ],
+    "evidence": [
+      "Video showing touch behavior",
+      "Screenshot of Device Manager HID devices",
+      "Photo of USB connection",
+      "Result from calibration tool"
+    ],
+    "customer_response": "Please confirm whether Windows detects any touch input at all, then send a short video showing the touch behavior and a screenshot of Device Manager under HID devices.",
+    "internal_notes": "Separate calibration issue from no-detection issue. No detection may indicate cable, USB, controller, or touch foil issue."
+  },
+  "Software / App Issue": {
+    "severity": "Medium",
+    "recommendation": "Collect version, device type, and screenshots before escalating.",
+    "steps": [
+      "Confirm software version.",
+      "Restart the app and the PC/iPad.",
+      "Check whether the issue happens on a new event/project.",
+      "Verify required permissions and settings.",
+      "Document exact steps to reproduce the issue."
+    ],
+    "evidence": [
+      "Screenshot of software version",
+      "Screenshot or video of the issue",
+      "Device model and operating system",
+      "Steps to reproduce"
+    ],
+    "customer_response": "Please send the software version, device model, operating system, and a short screen recording showing the issue from start to finish. If possible, also confirm whether the same issue happens in a new event/project.",
+    "internal_notes": "Version and reproducibility matter most. Avoid escalating without exact steps and environment details."
+  },
+  "Shipment / Missing Item": {
+    "severity": "High",
+    "recommendation": "Verify packing evidence and shipment photos before confirming replacement shipment.",
+    "steps": [
+      "Identify the order/product involved.",
+      "Ask for photos of all items received.",
+      "Compare received items against the expected packing list.",
+      "Check internal shipment photos if available.",
+      "Confirm whether a replacement part needs to be shipped."
+    ],
+    "evidence": [
+      "Customer photo of all received items laid out",
+      "Order number",
+      "Packing list or product name",
+      "Internal packing/shipment photos"
+    ],
+    "customer_response": "Please send a clear photo of all items received laid out together, along with your order number. We’ll compare it against the expected packing list and confirm the next step.",
+    "internal_notes": "This workflow supports warehouse/process improvement. Strong photo evidence prevents duplicate or incorrect replacement shipments."
+  }
+}
